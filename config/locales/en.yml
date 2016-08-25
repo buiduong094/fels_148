@@ -29,12 +29,22 @@ en:
     setting:
       title: "Settings"
     login: "Log in"
+    logout: "Log out"
     wellcome: "Welcome to the"
-
     register:
       create_user: "Create my account"
       signup: "Sign up "
       signin: "Sign in"
       sign_up_successful: "Sign up successful. Please login to participate!"
       error: "The form contains "
+      confirmation: "Confirmation"
     user_nil: "User not exists"
+
+    update_user:
+      title: "Edit user"
+      title_edit: "Update your profile"
+      update_success: "Profile updated"
+      confirmation: "Confirmation"
+      change: "change"
+      message: "Please login"
+      save_change: "Save changes"

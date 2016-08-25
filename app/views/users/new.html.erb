@@ -14,12 +14,12 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, t("page.register.confirmation") %>
       <%= f.password_field :password_confirmation, class: "form-control" %>
       <br>
       <%= f.submit t("page.register.create_user"), class: "btn btn-primary" %>
       <hr>
-      <p><%= link_to t ("page.register.login") %></p>
+      <p><%= link_to t("page.register.login") %></p>
     <% end %>
   </div>
 </div>
