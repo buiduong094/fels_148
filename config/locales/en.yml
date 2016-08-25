@@ -1,5 +1,3 @@
-#     I18n.t 'hello'
-#     <%= t('hello') %>
 en:
   page:
     framgia_system: "Framgia E-Learning System"
@@ -25,3 +23,11 @@ en:
       title: "Sign up now!"
     login: "Log in"
     wellcome: "Welcome to the"
+
+    register:
+      create_user: "Create my account"
+      signup: "Sign up "
+      signin: "Sign in"
+      sign_up_successful: "Sign up successful. Please login to participate!"
+      error: "The form contains "
+    user_nil: "User not exists"

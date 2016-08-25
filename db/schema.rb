@@ -71,9 +71,6 @@ ActiveRecord::Schema.define(version: 20160824023905) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "phone"
-    t.string   "address"
-    t.boolean  "sex"
     t.boolean  "is_admin"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
