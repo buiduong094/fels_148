@@ -4,7 +4,9 @@ en:
     framgia_link: "recruit.framgia.vn/"
     framgia: "Framgia VN"
     email: "bui.van.duong@framgia.com"
+    invalid_email: "Invalid email/password combination"
     logo: "logo"
+    account: "Account"
     michaelhartl: "Michael Hartl"
     michaelhartl_link: "http://www.michaelhartl.com/"
     rubyonrailstutorials: "Ruby on Rails Tutorial"
@@ -21,6 +23,11 @@ en:
       description: "To get help on this app, send email to: bui.van.duong@framgia.com."
     signup:
       title: "Sign up now!"
+      user_new: "New user?"
+    profile:
+      title: "Profile"
+    setting:
+      title: "Settings"
     login: "Log in"
     wellcome: "Welcome to the"
 
