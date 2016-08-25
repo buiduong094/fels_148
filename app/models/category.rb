@@ -7,4 +7,6 @@ class Category < ActiveRecord::Base
   query = "name like :search OR description like :search"
   scope :search_category, -> search {where query, search: "%#{search}%"}
 
+  validates :name,  presence: true, length: {maximum: 40}
+  validates :description,  presence: true, length: {maximum: 200}
 end
