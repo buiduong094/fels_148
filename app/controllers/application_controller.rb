@@ -5,17 +5,25 @@ class ApplicationController < ActionController::Base
 
   def logged_in_user
     unless logged_in?
+      store_location
       flash[:danger] = t "page.update_user.message"
       redirect_to login_url
     end
   end
 
-  private
-  def check_admin
-    if logged_in?
-      redirect_to root_path unless current_user.is_admin?
-    else
+  def correct_user
+    redirect_to root_url unless current_user.current_user? @user
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    if @user.nil?
+      flash[:danger] = t "page.user_nil"
       redirect_to root_path
     end
+  end
+
+  def check_admin
+      redirect_to root_path unless current_user.is_admin?
   end
 end

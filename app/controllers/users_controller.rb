@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, :load_user, only: [:show, :edit, :update]
+  before_action :logged_in_user, except: [:show]
   before_action :correct_user, only: [:edit, :update]
+  before_action :load_user, except: [:index]
 
   def new
     @user = User.new
+  end
+
+  def index
+    if params[:search]
+      @users = User.search(params[:search]).paginate page: params[:page]
+    else
+      @users = User.paginate(page: params[:page])
+    end
   end
 
   def show
@@ -36,17 +45,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation
-  end
-
-  def correct_user
-    redirect_to root_url unless current_user? @user
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    if @user.nil?
-      flash[:danger] = t "page.user_nil"
-      redirect_to root_path
-    end
   end
 end

@@ -6,10 +6,10 @@
         <li><%= link_to t("page.home.home"), root_path %></li>
         <li><%= link_to t("page.help.help"), help_path %></li>
         <% if logged_in? %>
-          <li><%= link_to t("page.user.title"), "#" %></li>
           <li>
             <% if current_user.is_admin %>
               <%= link_to t("page.category.title"), admin_categories_path %>
+              <li><%= link_to t("page.manager_user.users"), users_path %></li>
             <% else %>
               <%= link_to t("page.category.title"), categories_path %>
             <% end %>

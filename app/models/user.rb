@@ -19,7 +19,10 @@ class User < ActiveRecord::Base
 
   def number_words_learend_in_category category_id
     query = "category_id = :category_id AND id in (select word_id FROM results
-     INNER JOIN lessons ON user_id = :user_id)"
+      INNER JOIN lessons ON user_id = :user_id)"
     Word.where(query, category_id: category_id, user_id: id).count
   end
+
+  scope :search, ->(keyword) { where("name LIKE ?", "%#{keyword}%") }
+  default_scope -> { order(name: :asc) }
 end
