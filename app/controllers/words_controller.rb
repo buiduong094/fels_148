@@ -8,9 +8,11 @@ class WordsController < ApplicationController
 
   def index
     params[:search] ||= ""
-    @words = (Word.search_word params[:search]).order(category_id: :desc)
-      .paginate page: params[:page], per_page: Settings.category.per_page
+    params[:word_filter] ||= Settings.word_filter[:all]
     @categories = Category.all
+    @words = Word.in_category(params[:category_id])
+      .send(params[:word_filter], current_user.id, params[:search])
+      .paginate page: params[:page], per_page: Settings.category.per_page
   end
 
 end
