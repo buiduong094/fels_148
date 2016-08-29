@@ -1,0 +1,24 @@
+<% provide :title, t("page.category.title") %>
+<%= form_tag(categories_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search],
+    placeholder: t("page.category.search_placeholer") %>
+  <%= submit_tag t "page.search", :name => nil %>
+<% end %>
+<ul class="categories">
+  <% @categories.each do |category| %>
+    <li>
+      <h1><%= category.name %><h1>
+      <h2>
+        <%= t "page.category.user_learn" %>
+        <%= current_user.number_words_learend_in_category category.id %>
+        <%= t "page.category.sign" %> <%= category.words.count %>
+      </h2>
+      <h4>
+        <% (category.words.take Settings.category.per_word).each do |word| %>
+          <%= word.content %>
+        <% end %>
+      </h4>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>

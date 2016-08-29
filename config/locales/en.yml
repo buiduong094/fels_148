@@ -30,6 +30,7 @@ en:
       title: "Settings"
     login: "Log in"
     logout: "Log out"
+    login_danger: "Please login!"
     wellcome: "Welcome to the"
     register:
       create_user: "Create my account"
@@ -38,6 +39,12 @@ en:
       sign_up_successful: "Sign up successful. Please login to participate!"
       error: "The form contains "
       confirmation: "Confirmation"
+    category:
+      title: "Category"
+      search_placeholer: "Search Category"
+      user_learn: "You have learned"
+      sign: "/"
+    search: "Search"
     user_nil: "User not exists"
 
     update_user:
