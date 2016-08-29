@@ -1,0 +1,8 @@
+<div class="container center">
+  <div class="row" id="category-index">
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  </div>
+  <%= will_paginate %>
+</div>
