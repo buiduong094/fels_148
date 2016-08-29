@@ -5,3 +5,6 @@ word:
   per_page: 20
 word_filter: {learned: "learned", not_learned: "not_learned", all: "show_all"}
 all: "All"
+admin:
+  category:
+    per_page: 9

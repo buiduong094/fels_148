@@ -41,6 +41,10 @@ en:
       confirmation: "Confirmation"
     category:
       title: "Category"
+      new_category: "New Category"
+      create: "Create Category"
+      edit: "Edit"
+      delete: "Delete"
       search_placeholer: "Search Category"
       user_learn: "You have learned"
       description: "Description"
@@ -66,3 +70,8 @@ en:
       change: "change"
       message: "Please login"
       save_change: "Save changes"
+    messages:
+      notice: "You are sure?"
+  datetime:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S"
