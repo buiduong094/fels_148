@@ -43,10 +43,21 @@ en:
       title: "Category"
       search_placeholer: "Search Category"
       user_learn: "You have learned"
+      description: "Description"
       sign: "/"
+    word:
+      title: "Word"
+      search_placeholer: "Search Word"
+      learned: "Learned"
+      not_learned: "Not Learned"
+      all: "All"
+      search_placeholer: "Search Word"
+      filter: "Filter"
+      two_dots: ":"
+    answer:
+      title: "Answer"
     search: "Search"
     user_nil: "User not exists"
-
     update_user:
       title: "Edit user"
       title_edit: "Update your profile"

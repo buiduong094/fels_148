@@ -1,0 +1,17 @@
+<div class = "center">
+<h4>
+  <%= "#{t "page.category.title"}: #{@word.category.name}" %>
+</h4>
+<h2>
+  <%= "#{t "page.category.description"}: #{@word.category.description}" %>
+</h2>
+<h2>
+  <%= "#{t "page.word.title"}: #{@word.content}" %>
+</h2>
+<h2>
+  <%= t "page.answer.title"%><%= t "page.word.two_dots"%>
+  <% @word.answers.each do |answer| %>
+    <%= answer.content if answer.is_correct %>
+  <% end %>
+</h2>
+</div>

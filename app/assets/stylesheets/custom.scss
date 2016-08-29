@@ -24,6 +24,17 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+  ul {
+    list-style: none;
+  }
+  table {
+    align: center;
+    tr {
+      th, td {
+        padding: 10px;
+      }
+    }
+  }
 }
 
 /* typography */

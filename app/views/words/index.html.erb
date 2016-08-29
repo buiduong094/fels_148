@@ -1,0 +1,29 @@
+<% provide :title, t("page.word.title") %>
+<div class="center">
+  <%= form_tag words_path, method: :get, id: "search-form" do %>
+    <%= text_field_tag :search, params[:search],
+      placeholder: t("page.word.search_placeholer") %>
+    <%= submit_tag t "page.search", name: nil %>
+  <% end %>
+  <table align="center">
+    <tr>
+      <th></th>
+      <th><%= t"page.category.title" %></th>
+      <th><%= t"page.word.title" %></th>
+      <th><%= t"page.word.detail" %></th>
+    </tr>
+    <% @words.each_with_index do |word, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><span class = "category"><%= word.category.name %></span></td>
+        <td><span class = "content"><%= word.content %></span></td>
+        <td>
+          <span class = "content">
+            <%= link_to t("page.word.detail"), word %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
+  <table>
+  <%= will_paginate %>
+</div>

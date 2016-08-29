@@ -1,3 +1,7 @@
 category:
   per_page: 10
   per_word: 10
+word:
+  per_page: 20
+word_filter: {learned: "learned", not_learned: "not_learned", all: "show_all"}
+all: "All"

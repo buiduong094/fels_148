@@ -1,4 +1,5 @@
-class Lesson < ActiveRecord::Base  belongs_to :user
+class Lesson < ActiveRecord::Base
+  belongs_to :user
   belongs_to :category
   has_many :results
 end
