@@ -1,0 +1,33 @@
+<% provide :title, t("page.admin.users.title") %>
+<h2><%= t "page.admin.users.title"  %></h2>
+<%= form_tag admin_users_path, method: :get do %>
+  <%= text_field_tag :search, params[:search],
+    placeholder: t("page.admin.users.placeholder_search") %>
+  <%= submit_tag t("page.admin.users.btn_submit"), id: "searchbtn" %>
+<% end %>
+<%= will_paginate %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= t "page.admin.users.tr_STT" %></th>
+      <th><%= t "page.admin.users.tr_name" %></th>
+      <th><%= t "page.admin.users.tr_email" %></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @users.each.with_index do |user, index| %>
+        <tr>
+          <td><%= index +1 %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <% if current_user.is_admin? && !current_user.current_user?(user) %>
+              <%= link_to "user", user %>|
+              <%= link_to "delete-btn", [:admin, user], method: :delete,
+                data: {confirm: "page.admin.users.delete_confirm"} %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

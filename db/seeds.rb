@@ -26,3 +26,15 @@ count=1
   Result.create!(lesson_id:  1, word_id: i+1, word_answer_id: count)
   count += 3
 end
+
+99.times do |n|
+  # name  = Faker::Name.name
+  name = "name - #{n+1}"
+  email = "account-#{n+1}@railstutorial.org"
+  password = "abc123"
+  User.create!(name:  name,
+    email: email,
+    password: password,
+    password_confirmation: password,
+    is_admin: false)
+end
