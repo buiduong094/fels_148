@@ -23,6 +23,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_category
+    @category = Category.find_by id: params[:id]
+      if @category.nil?
+        flash[:danger] = t "page.admin.categories.find"
+        redirect_to admin_categories_url
+      end
+  end
+
   def check_admin
       redirect_to root_path unless current_user.is_admin?
   end
