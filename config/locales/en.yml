@@ -77,19 +77,21 @@ en:
       formats:
         default: "%a, %d %b %Y %H:%M:%S"
 
-    category:
-      create_category_success: "Create category success"
-      check_category_nil: "Category not exists"
-      title: "Category"
-      add_category: "Add Category"
-
     admin:
       users:
-        delete_success: "Delete success"
-        delete_fail: "Delete fail"
+        delete_user_success: "Delete user success"
+        delete_user_fail: "Delete user fail"
+        delete_confirm: "You sure?"
         title: "All users"
         placeholder_search: "search by name or email"
         tr_STT: "STT"
         tr_name: "Name"
         tr: "Email"
-        btn_submit: "submit"
+        submit_search_users: "Search"
+      categories:
+        submit_create_new_category: "Create Category"
+        create_category_success: "Create category success"
+        delete_category_success: "Delete category success"
+        delete_category_fail: "Delete category fail"
+        title: "Create new category"
+        title_page: "New Category"

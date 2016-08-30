@@ -23,9 +23,4 @@ class CategoriesController < ApplicationController
       redirect_to root_path
     end
   end
-
-  private
-  def category_params
-    params.require(:category).permit :name, :description
-  end
 end
