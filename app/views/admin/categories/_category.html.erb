@@ -9,12 +9,11 @@
     <br/>
     <br/>
     <div class="btn-group">
-      <%= link_to t("page.category.edit"),
-        "#", class: "btn btn-success btn-xs" %>
-      <%= link_to t("page.category.delete"), [:admin, category],
+      <%= link_to t("page.admin.categories.link_edit"),
+        edit_admin_category_path(category), class: "btn btn-success btn-xs" %>
+      <%= link_to t("page.admin.categories.link_delete"), [:admin, category],
         method: :delete, data: {confirm: t("page.messages.notice"),
-         remote: true},
-        class: "btn btn-danger btn-xs" %>
+        remote: true}, class: "btn btn-danger btn-xs" %>
     </div>
   </div>
 </div>

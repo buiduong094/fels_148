@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :logged_in_user, except: [:show]
   before_action :check_admin, only: [:index, :show, :destroy]
-  before_action :load_user, only: [:show, :destroy]
+  before_action :load_user, only: [:edit, :show, :destroy]
 
   def index
     if params[:search]
