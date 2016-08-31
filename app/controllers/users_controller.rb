@@ -1,7 +1,8 @@
+
 class UsersController < ApplicationController
-  before_action :logged_in_user, except: [:show]
+  before_action :logged_in_user, except: [:show, :new, :create]
   before_action :correct_user, only: [:edit, :update]
-  before_action :load_user, except: [:index]
+  before_action :load_user, except: [:index, :new, :create]
 
   def new
     @user = User.new
@@ -16,6 +17,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @lessons = Lesson.user_own current_user
+    @lessons = Lesson.paginate page: params[:page],
+      per_page: Settings.lesson.per_page
   end
 
   def create

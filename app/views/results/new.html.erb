@@ -1,0 +1,20 @@
+<%= form_for [@lesson, @result] do |f| %>
+<div>
+  <%= f.label :lesson_id %>
+  <% @list_words.each do |word| %>
+    <%= f.fields_for :words do |w| %>
+      <div class="col-md-12">
+        <strong><%= word.content %></strong><br/>
+        <% word.answers.each do |a| %>
+          <div><%= w.radio_button :answers, a.content%><%= a.content %></div>
+        <% end %>
+      </div>
+    <% end %>
+   <% end %>
+</div>
+<div>
+  <%= f.submit t("user.lesson.btn_save"), class: "btn btn-primary" %>
+  <%= f.submit t("user.lesson.btn_submit"), class: "btn btn-primary",
+    data: {confirm: t("user.lesson.sure")} %>
+</div>
+<% end %>

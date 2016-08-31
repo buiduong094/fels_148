@@ -109,3 +109,38 @@ en:
         create_success: "Create a new word success"
         create_fail: "Create a new word fail"
         create_overflow: "Sorry, answers no more size"
+
+    lessons:
+      create_lesson_success: "Create lessons success"
+      create_lesson_fail: "Create lessons fail"
+      link_create_lesson: "Create lesson"
+      not_found_user: "Not found user"
+      not_found_lesson: "Not found lesson"
+      already_submit: "Already submit"
+      flash_iscompleted: "You already complete this lesson"
+      flash_uncompleted: "Uncompleted this lesson"
+      submit_success: "Submit the lesson successfully"
+      save_success: "Save the lesson successfully"
+      submit_btn: "Submit"
+      correct_answer: "Correct answer"
+      incorrect_answer: "Incorrect answer"
+      btn_save: "Save"
+      btn_submit: "Submit"
+      confirm_msg: "You sure?"
+      title_show: "Show"
+      show_my_lesson: "My lesson"
+      show_my_lesson_msg: "This lesson is created at "
+      err_create_lesson: "Number word of category not enough"
+
+    users:
+      profile:
+        td_name: "Name"
+        td_email: "Email"
+        title_lesson: "Title lesson"
+        td_index: "STT"
+        td_date: "Date"
+        td_status: "Status"
+        stt_continue: "Continue"
+        stt_finish: "Finish"
+        my_profile: "My profile"
+
