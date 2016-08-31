@@ -1,0 +1,25 @@
+<% provide :title, t("page.admin.words.title") %>
+<div class="center">
+  <%= link_to t("page.word.create"), admin_create_word_path,
+    class: "btn btn-lg btn-primary pull-right" %>
+  <div class="filter">
+    <%= form_tag admin_words_path, method: :get, id: "search-form" do %>
+      <%= t "page.category.title" %>:
+      <%= select_tag( :category_id, options_for_select(
+        @categories.collect{ |category| [category.name, category.id]},
+        params[:category_id]), include_blank: Settings.all,
+        class: "form-group") %>
+      <% Settings.word_filter.each do |key, status| %>
+        <%= radio_button_tag :word_filter, status,
+          params[:word_filter] == status %>
+        <%= label_tag "page_word_filter", t("page.word.#{status}"),
+          class: "font-normal" %>
+      <% end %>
+    </br>
+      <%= text_field_tag :search, params[:search],
+        placeholder: t("page.word.search_placeholer") %>
+      <%= submit_tag t("page.word.filter") %>
+    <% end %>
+  </div>
+  <%= render "words/index.html.erb" %>
+</div>
