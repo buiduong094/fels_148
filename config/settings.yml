@@ -8,3 +8,6 @@ all: "All"
 admin:
   category:
     per_page: 9
+  words:
+    default_size_word_answers: 4
+    max_size_word_answers: 7

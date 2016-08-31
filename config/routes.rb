@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :categories, except: [:show]
     resources :users, only: [:index, :show, :destroy]
+    resources :words
+    get  "/create_word", to: "words#new"
   end
 end

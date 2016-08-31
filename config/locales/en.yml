@@ -1,4 +1,7 @@
 en:
+  datetime:
+      formats:
+        default: "%a, %d %b %Y %H:%M:%S"
   page:
     framgia_system: "Framgia E-Learning System"
     framgia_link: "recruit.framgia.vn/"
@@ -58,6 +61,7 @@ en:
       search_placeholer: "Search Word"
       filter: "Filter"
       two_dots: ":"
+      delete: "Delete"
     answer:
       title: "Answer"
     search: "Search"
@@ -73,10 +77,6 @@ en:
       save_change: "Save changes"
     messages:
       notice: "You are sure?"
-    datetime:
-      formats:
-        default: "%a, %d %b %Y %H:%M:%S"
-
     admin:
       users:
         delete_user_success: "Delete user success"
@@ -102,3 +102,10 @@ en:
         submit_update_category: "Update category"
         title_update: "Update category"
         title_page_update: "Update category"
+      words:
+        title: "Word"
+        create: "Create a new words"
+        add_answer: "Add a new answer"
+        create_success: "Create a new word success"
+        create_fail: "Create a new word fail"
+        create_overflow: "Sorry, answers no more size"
