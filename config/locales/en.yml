@@ -62,6 +62,8 @@ en:
       filter: "Filter"
       two_dots: ":"
       delete: "Delete"
+      icon_true: "true.png"
+      icon_false: "false.png"
     answer:
       title: "Answer"
     search: "Search"
@@ -105,11 +107,12 @@ en:
       words:
         title: "Word"
         create: "Create a new words"
+        update: "Update word"
         add_answer: "Add a new answer"
         create_success: "Create a new word success"
         create_fail: "Create a new word fail"
         create_overflow: "Sorry, answers no more size"
-
+        update_success: "Update word success!"
     lessons:
       create_lesson_success: "Create lessons success"
       create_lesson_fail: "Create lessons fail"
@@ -131,7 +134,6 @@ en:
       show_my_lesson: "My lesson"
       show_my_lesson_msg: "This lesson is created at "
       err_create_lesson: "Number word of category not enough"
-
     users:
       profile:
         td_name: "Name"
@@ -143,4 +145,3 @@ en:
         stt_continue: "Continue"
         stt_finish: "Finish"
         my_profile: "My profile"
-

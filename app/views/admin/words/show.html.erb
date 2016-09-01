@@ -1,34 +1,27 @@
 <div class = "center">
-  <h4>
-    <%= "#{t "page.category.title"}: #{@word.category.name}" %>
-  </h4>
+  <h4><%= "#{t "page.category.title"}: #{@word.category.name}" %></h4>
   <h2>
     <%= "#{t "page.category.description"}: #{@word.category.description}" %>
   </h2>
-  <h2>
-    <%= "#{t "page.word.title"}: #{@word.content}" %>
-  </h2>
+  <h2><%= "#{t "page.word.title"}: #{@word.content}" %></h2>
   <h2>
     <%= t "page.answer.title"%><%= t "page.word.two_dots"%>
     <br/>
-    <% @word.answers.each do |answer|
-      if answer.is_correct %>
-        <h3>
-          <span class="label label-success btn-xs" %>
-            <%= answer.content %>
-          </span>
-        </h3>
+    <% @word.answers.each do |answer| %>
+      <h3><%= answer.content %></h3>
+      <% if answer.is_correct %>
+        <%= image_tag "true.png", alt: t("page.word.icon_true"),
+          width: Settings.size_icon_true_false,
+          height: Settings.size_icon_true_false %>
       <% else %>
-        <h3>
-          <span class="label label-danger btn-xs" %>
-            <%= answer.content %>
-          </span>
-        </h3>
+        <%= image_tag "false.png", alt: t("page.word.icon_false"),
+          width: Settings.size_icon_true_false,
+          height: Settings.size_icon_true_false %>
       <% end %>
       <br/>
     <% end %>
   </h2>
-  <span class: "btn btn-infor btn-xs" %>
-    <%= link_to t("page.word.update"), "#" %>
+  <span class="btn btn-success" %>
+    <%= link_to t("page.admin.words.update"),  edit_admin_word_path(@word) %>
   </span>
 </div>
