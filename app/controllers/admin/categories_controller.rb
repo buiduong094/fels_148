@@ -37,11 +37,11 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      flash[:success] = t "page.admin.categories.flash_delete_success"
-    else
-      flash[:danger] = t "page.admin.categories.flash_delete_fail"
+      respond_to do |format|
+        format.html {redirect_to categories_url}
+        format.js
+      end
     end
-    redirect_to admin_categories_url
   end
 
   private
