@@ -11,6 +11,10 @@
     <div class="row">
       <div class="col-md-3 col-lg-3" align="center">
         <%= gravatar_for @user %>
+        <section class="stats">
+          <%= render 'shared/stats' %>
+        </section>
+        <%= render 'follow_form' if logged_in? %>
       </div>
       <div class="col-md-9 col-lg-9">
         <table class="table table-user-information">
@@ -30,6 +34,7 @@
   </div>
   <div class="panel-body">
     <h3><%= t "page.users.profile.title_lesson" %></h3>
+    <%= will_paginate @lessons %>
     <div class="table-responsive table-condensed">
       <table class="table">
         <thead>

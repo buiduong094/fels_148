@@ -2,7 +2,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:show, :new, :create]
   before_action :correct_user, only: [:edit, :update]
-  before_action :load_user, except: [:index, :new, :create]
+  before_action :load_user, except: [:index]
+  before_action :find_user, only: [:following, :followers]
 
   def new
     @user = User.new
@@ -45,9 +46,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @title = "Following"
+    @user  = User.find_by id: params[:id]
+    @users = @user.following.paginate(page: params[:page])
+    render :show_follow
+  end
+
+  def followers
+    @title = "Followers"
+    @users = @user.followers.paginate(page: params[:page])
+    render :show_follow
+  end
+
   private
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation
+  end
+
+  def find_user
+    unless @user = User.find_by(id: params[:id])
+      flash[:danger] = t "page.users.profile.user_nil"
+      redirect_to root_url
+    end
   end
 end

@@ -145,3 +145,8 @@ en:
         stt_continue: "Continue"
         stt_finish: "Finish"
         my_profile: "My profile"
+        following: "following"
+        followers: "followers"
+        user_nil: "Not found user"
+    relationship:
+      cant_find_relationship: "cant find relationship"

@@ -1,0 +1,13 @@
+<% provide :title, t("user.relationship") %>
+<div class="col-md-8 col-md-offset-2 td-rela">
+  <div class="col-md-8">
+    <h3><%= @relationship %></h3>
+    <% if @users.any? %>
+      <ul class="users follow">
+        <%= render @users %>
+      </ul>
+      <%= will_paginate @users %>
+    <% end %>
+  </div>
+</div>
+<div class="clearfix"></div>
