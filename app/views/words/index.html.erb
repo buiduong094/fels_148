@@ -19,25 +19,5 @@
       <%= submit_tag t("page.word.filter") %>
     <% end %>
   </div>
-  <table align="center">
-    <tr>
-      <th></th>
-      <th><%= t"page.category.title" %></th>
-      <th><%= t"page.word.title" %></th>
-      <th><%= t"page.word.detail" %></th>
-    </tr>
-    <% @words.each_with_index do |word, index| %>
-      <tr>
-        <td><%= index %></td>
-        <td><span class = "category"><%= word.category.name %></span></td>
-        <td><span class = "content"><%= word.content %></span></td>
-        <td>
-          <span class = "content">
-            <%= link_to t("page.word.detail"), word %>
-          </span>
-        </td>
-      </tr>
-    <% end %>
-  </table>
-  <%= will_paginate %>
+  <%= render "words/index.html.erb" %>
 </div>

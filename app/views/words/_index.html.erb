@@ -1,0 +1,34 @@
+<table align="center">
+  <tr>
+    <th></th>
+    <th><%= t"page.category.title" %></th>
+    <th><%= t"page.word.title" %></th>
+    <th><%= t"page.word.detail" %></th>
+  </tr>
+  <% @words.each_with_index do |word, index| %>
+    <tr id = "word_<%="#{word.id}"%>">
+      <td>
+        <% params[:page] ||= "1" %>
+        <%= 1 + index + (params[:page].to_i-1)*Settings.category.per_word %>
+      </td>
+      <td><span class = "category"><%= word.category.name %></span></td>
+      <td><span class = "content"><%= word.content %></span></td>
+      <td>
+        <% if current_user.is_admin %>
+          <span class = "content">
+            <%= link_to t("page.word.detail"), [:admin, word] %>
+          </span>
+          <%= link_to t("page.word.update"), "#" %>
+          <%= link_to t("page.word.delete"), [:admin, word],
+            method: :delete, data: {confirm: t("page.messages.notice"),
+            remote: true}, class: "btn btn-danger btn-xs" %>
+        <% else %>
+          <span class = "content">
+            <%= link_to t("page.word.detail"), word %>
+          </span>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate %>
