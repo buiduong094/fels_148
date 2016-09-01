@@ -11,8 +11,8 @@
         <% params[:page] ||= "1" %>
         <%= 1 + index + (params[:page].to_i-1)*Settings.category.per_word %>
       </td>
-      <td><span class = "category"><%= word.category.name %></span></td>
-      <td><span class = "content"><%= word.content %></span></td>
+      <td><span class="category"><%= word.category.name %></span></td>
+      <td><span class="content"><%= word.content %></span></td>
       <td>
         <% if current_user.is_admin %>
           <span class = "content">
