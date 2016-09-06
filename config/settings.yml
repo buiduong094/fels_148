@@ -21,3 +21,4 @@ relationships:
   per_page: 5
 activities:
   per_page: 20
+remembered: 1

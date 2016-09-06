@@ -197,7 +197,6 @@ footer {
     box-sizing:         border-box;
   }
 
-
   /* sidebar */
 
   aside {
@@ -247,7 +246,22 @@ footer {
   input {
     height: auto !important;
   }
+
+  .checkbox {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    span {
+      margin-left: 20px;
+      font-weight: normal;
+    }
+  }
+
+  #session_remember_me {
+    width: auto;
+    margin-left: 0;
+  }
 }
+
 .end_result {
   display: none;
 }

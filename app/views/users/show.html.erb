@@ -47,27 +47,27 @@
               <th><%= t "page.users.profile.td_status" %></th>
             </tr>
           </thead>
-            <tbody>
-              <% @lessons.each.with_index do |lesson, index| %>
-                <% if current_user? lesson.user %>
-                  <tr>
-                    <td><%= index+1 %></td>
-                    <td><%= localize_time lesson.created_at %></td>
-                    <% if lesson.is_complete? %>
-                      <td>
-                        <%= link_to t("page.users.profile.stt_finish"),
-                          lesson_path(lesson), class: "btn btn-success" %>
-                      </td>
-                    <% else %>
-                      <td>
-                        <%= link_to t("page.users.profile.stt_continue"),
-                          lesson_path(lesson), class: "btn btn-primary" %>
-                      </td>
-                    <% end %>
-                  </tr>
-                <% end %>
+          <tbody>
+            <% @lessons.each.with_index do |lesson, index| %>
+              <% if current_user? lesson.user %>
+                <tr>
+                  <td><%= index+1 %></td>
+                  <td><%= localize_time lesson.created_at %></td>
+                  <% if lesson.is_complete? %>
+                    <td>
+                      <%= link_to t("page.users.profile.stt_finish"),
+                        lesson_path(lesson), class: "btn btn-success" %>
+                    </td>
+                  <% else %>
+                    <td>
+                      <%= link_to t("page.users.profile.stt_continue"),
+                        lesson_path(lesson), class: "btn btn-primary" %>
+                    </td>
+                  <% end %>
+                </tr>
               <% end %>
-            </tbody>
+            <% end %>
+          </tbody>
         </table>
         <%= will_paginate @lessons %>
       </div>
