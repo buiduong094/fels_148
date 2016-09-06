@@ -1,0 +1,23 @@
+<li><%= f.label f.object.word.content %></li>
+<div class="lesson_word">
+  <% f.object.word.answers.each do |answer| %>
+    <div class="word_answer">
+      <%= f.radio_button :word_answer_id, answer.id,
+        disabled: f.object.lesson.is_complete? %>
+      <%= answer.content %>
+    </div>
+    <% if f.object.lesson.is_complete? %>
+      <div>
+        <% if answer.is_correct %>
+          <font color="green">
+            <%= t "page.lessons.correct_answer" %>
+          </font>
+        <% else %>
+          <font color="red">
+            <%= t "page.lessons.incorrect_answer" %>
+          </font>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

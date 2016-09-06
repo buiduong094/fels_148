@@ -1,11 +1,65 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
+<div class="panel panel-info">
+  <div class="panel-body">
+    <div class="row">
+      <section class="user_info  text-center">
+        <h1>
+          <%= t "page.users.profile.my_profile" %>
+        </h1>
+      </section>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-lg-3" align="center">
         <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+      </div>
+      <div class="col-md-9 col-lg-9">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td><%= t "page.users.profile.td_name" %></td>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <td><%= t "page.users.profile.td_email" %></td>
+              <td><%= @user.email %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <h3><%= t "page.users.profile.title_lesson" %></h3>
+    <div class="table-responsive table-condensed">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t "page.users.profile.td_index" %></th>
+            <th><%= t "page.users.profile.td_date" %></th>
+            <th><%= t "page.users.profile.td_status" %></th>
+          </tr>
+        </thead>
+          <tbody>
+            <% @lessons.each.with_index do |lesson, index| %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= lesson.created_at %></td>
+                <td><%= link_to (lesson.is_complete? ?
+                  t("page.users.profile.stt_finish")
+                  : t("page.users.profile.stt_continue")),
+                  lesson_path(lesson) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+      <%= will_paginate @lessons %>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <span class="pull-right">
+      <%= link_to edit_user_path(@user) do %>
+        <span class="glyphicon glyphicon-edit btn btn-sm btn-warning"></span>
+      <% end %>
+    </span>
+  </div>
 </div>
