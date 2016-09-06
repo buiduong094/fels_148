@@ -22,7 +22,8 @@
           <td><%= user.email %></td>
           <td>
             <% if current_user.is_admin? && !current_user.current_user?(user) %>
-              <%= link_to image_tag("delete-user-icon.png"), [:admin, user], method: :delete,
+              <%= link_to image_tag("delete-user-icon.png"),
+                [:admin, user], method: :delete,
                 data: {confirm: t("page.admin.users.delete_confirm")} %>
             <% end %>
           </td>
