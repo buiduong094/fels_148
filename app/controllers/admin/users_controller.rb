@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   def index
     if params[:search]
       @users = User.search(params[:search]).paginate page: params[:page],
-        per_page: Settings.users.per_page
+        per_page: Settings.admin.users.per_page
     else
       @users = User.all.paginate page: params[:page],
         per_page: Settings.admin.users.per_page

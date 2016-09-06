@@ -1,16 +1,18 @@
-<div class="jumbotron">
-  <% if logged_in? %>
-    <h3 class="center"><%= t ".activity_title" %></h3>
-    <table class="table">
-      <%= render partial: "shared/activity", collection: @activities %>
-    </table>
-    <%= will_paginate @activities %>
-  <% else %>
-    <div class="center jumbotron">
-      <h1><%= t "page.home.title" %></h1>
-      <p><%= t "page.home.description" %></p>
-      <%= link_to t("page.signup.title"), signup_path,
-        class: "btn btn-lg btn-primary" %>
-    </div>
-  <% end %>
-</div>
+<% if logged_in? %>
+  <h3 class="center"><%= t ".activity_title" %></h3>
+  <table class="table">
+    <%= render partial: "shared/activity", collection: @activities %>
+  </table>
+  <%= will_paginate @activities %>
+<% else %>
+  <div class="jumbotron">
+    <div><h1><%= t "page.home_tt" %></h1></div>
+    <h1 class="framgia"><%= t "page.home_elearning" %></h1>
+    <div class="result4"><%= link_to image_tag("E-learning.png", alt: "Framgia"),
+      t("page.link_recruit") %></div>
+    <%= link_to image_tag("teaching.png", alt: "Framgia"),
+      t("page.link_recruit") %>
+    <%= link_to t("page.signup.title"), signup_path,
+      class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

@@ -1,12 +1,31 @@
-<%= form_for @lesson do |f| %>
-<ol>
-  <%= f.fields_for :results do |builder| %>
-      <%= render "result", f: builder %>
-  <% end %>
-</ol>
-<div>
-  <%= f.submit t("page.lessons.btn_save"), class: "btn btn-primary" %>
-  <%= f.submit t("page.lessons.btn_submit"), class: "btn btn-primary",
-    data: {confirm: t("page.lessons.confirm_msg")} %>
+<div class="content container">
+  <div class="row exam">
+    <div>
+      <span>
+        <h4><%= t "page.lessons.show_my_lesson_msg" %><%= @lesson.created_at %></h4>
+      </span>
+      <hr>
+    </div>
+    <div class="col-md-7">
+      <%= form_for @lesson, class: "edit_exam", id: "edit_exam_1326" do |f| %>
+        <ol>
+          <%= f.fields_for :results do |builder| %>
+              <%= render "result", f: builder %>
+              <br>
+          <% end %>
+          <br>
+        </ol>
+        <%= f.submit t("page.lessons.btn_save"),
+          class: "btn btn-primary btn-submit submit-time-out" %>
+        <%= f.submit t("page.lessons.btn_submit"),
+          class: "btn btn-danger btn-submit pull-right", id: "btn-finish",
+          data: {confirm: t("page.lessons.confirm_msg")} %>
+      <% end %>
+    </div>
+    <div class="col-md-2 col-md-offset-1 timer">
+      <h4>Time remain: </h4>
+      <div id="clock" class="is-countdown">
+      </div>
+    </div>
+  </div>
 </div>
-<% end %>

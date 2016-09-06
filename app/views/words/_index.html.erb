@@ -1,34 +1,40 @@
-<table align="center">
-  <tr>
-    <th></th>
-    <th><%= t"page.category.title" %></th>
-    <th><%= t"page.word.title" %></th>
-    <th><%= t"page.word.detail" %></th>
-  </tr>
-  <% @words.each_with_index do |word, index| %>
-    <tr id = "word_<%="#{word.id}"%>">
-      <td>
-        <% params[:page] ||= "1" %>
-        <%= 1 + index + (params[:page].to_i-1)*Settings.category.per_word %>
-      </td>
-      <td><span class = "category"><%= word.category.name %></span></td>
-      <td><span class = "content"><%= word.content %></span></td>
-      <td>
-        <% if current_user.is_admin %>
-          <span class = "content">
-            <%= link_to t("page.word.detail"), [:admin, word] %>
-          </span>
-          <%= link_to t("page.word.update"),  edit_admin_word_path(word) %>
-          <%= link_to t("page.word.delete"), [:admin, word],
-            method: :delete, data: {confirm: t("page.messages.notice"),
-            remote: true}, class: "btn btn-danger btn-xs" %>
-        <% else %>
-          <span class = "content">
-            <%= link_to t("page.word.detail"), word %>
-          </span>
-        <% end %>
-      </td>
+<table class="table table-hover" id="list_user">
+  <thead class="title_table">
+    <tr>
+      <th class="th_word"><%= t "page.admin.words.td_index" %></th>
+      <th class="th_word"><%= t "page.admin.words.td_category" %></th>
+      <th class="th_word"><%= t "page.admin.words.td_word_content" %></th>
+      <% if current_user.is_admin %>
+        <th class="th_word"><%= t "page.admin.words.td_view_detail" %></th>
+        <th class="th_word"><%= t "page.admin.words.td_edit_word" %></th>
+        <th class="th_word"><%= t "page.admin.words.td_delete_word" %></th>
+      <% else %>
+        <th class="th_word"><%= t "page.admin.words.td_view_detail" %></th>
+      <% end %>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% @words.each_with_index do |word, index| %>
+      <tr>
+        <td>
+          <% params[:page] ||= "1" %>
+          <%= 1 + index + (params[:page].to_i-1)*Settings.category.per_word %>
+        </td>
+        <td><%= word.category.name %></td>
+        <td><%= word.content %></td>
+        <% if current_user.is_admin %>
+          <td><%= link_to t("page.word.detail"), [:admin, word] %></td>
+          <td><%= link_to t("page.word.update"),  edit_admin_word_path(word) %></td>
+          <td>
+            <%= link_to t("page.word.delete"), [:admin, word],
+              method: :delete, data: {confirm: t("page.messages.notice"),
+              remote: true}, class: "btn btn-danger btn-xs" %>
+          </td>
+        <% else %>
+          <td><%= link_to t("page.word.detail"), word %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 <%= will_paginate %>

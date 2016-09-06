@@ -1,15 +1,25 @@
 <% provide :title, t("page.lessons.title_show") %>
-<h1><%= t "page.lessons.show_my_lesson"%></h1>
-<div>
-  <span>
-    <h4><%= t "page.lessons.show_my_lesson_msg" %><%= @lesson.created_at %></h4>
-    <%= @lesson.number_correct.count.to_s + "/" + @lesson.results.count.to_s %>
-  </span>
+<div class="content container">
+  <div class="row exam">
+    <div>
+      <span>
+        <h4><%= t "page.lessons.show_my_lesson_msg" %><%= @lesson.created_at %></h4>
+        <div class="result2"><%= t "page.lessons.result" %></div>
+        <div class="result3">
+          <%= @lesson.number_correct.count.to_s + "/" +
+            @lesson.results.count.to_s %>
+        </div>
+      </span>
+      <hr>
+    </div>
+    <div class="col-md-7">
+      <%= form_for @lesson do |f| %>
+        <ol>
+          <%= f.fields_for :results do |builder| %>
+            <%= render "result", f: builder %>
+          <% end %>
+        </ol>
+      <% end %>
+    </div>
+  </div>
 </div>
-<%= form_for @lesson do |f| %>
-  <ol>
-    <%= f.fields_for :results do |builder| %>
-      <%= render "result", f: builder %>
-    <% end %>
-  </ol>
-<% end %>

@@ -1,26 +1,30 @@
 <% provide :title, t("page.admin.users.title") %>
-<h2><%= t "page.admin.users.title" %></h2>
 <%= form_tag users_path, method: :get do %>
-  <%= text_field_tag :search, params[:search],
-    placeholder: t("page.admin.users.placeholder_search") %>
-  <%= submit_tag t("page.admin.users.submit_search_users"), id: "searchbtn" %>
+  <div class="form-group row">
+    <div class="col-xs-6">
+      <%= text_field_tag :search, params[:search], class: "form-control",
+        placeholder: t("page.admin.users.placeholder_search") %>
+    </div>
+  </div>
 <% end %>
-<%= will_paginate %>
-<table class="table table-hover">
-  <thead>
+<table class="table table-hover" id="list_user">
+  <thead class="title_table">
     <tr>
-      <th><%= t "page.admin.users.tr_STT" %></th>
-      <th><%= t "page.admin.users.tr_name" %></th>
-      <th><%= t "page.admin.users.tr_email" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_index" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_Avatar" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_name" %></th>
+      <th class="user_email"><%= t "page.admin.users.td_email" %></th>
     </tr>
   </thead>
   <tbody>
       <% @users.each.with_index do |user, index| %>
         <tr>
-          <td><%= index+1 %></td>
-          <td><%= user.name %></td>
+          <td><%= index +1 %></td>
+          <td><%= gravatar_for user, size: 50 %></td>
+          <td><%= link_to user.name, user %></td>
           <td><%= user.email %></td>
         </tr>
       <% end %>
   </tbody>
 </table>
+<%= will_paginate %>

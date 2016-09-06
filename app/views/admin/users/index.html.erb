@@ -1,14 +1,18 @@
 <% provide :title, t("page.admin.users.title") %>
 <h1><%= t "page.admin.users.title"  %></h1>
 <%= form_tag admin_users_path, method: :get do %>
-  <%= text_field_tag :search, params[:search],
-    placeholder: t("page.admin.users.placeholder_search") %>
-  <%= submit_tag t("page.admin.users.submit_search_users"), id: "searchbtn" %>
+  <div class="form-group row">
+    <div class="col-xs-6">
+      <%= text_field_tag :search, params[:search], class: "form-control",
+        placeholder: t("page.admin.users.placeholder_search") %>
+    </div>
+  </div>
 <% end %>
 <table class="table table-hover" id="list_user">
   <thead class="title_table">
     <tr>
-      <th class="user_name"><%= t "page.admin.users.td_STT" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_index" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_Avatar" %></th>
       <th class="user_name"><%= t "page.admin.users.td_name" %></th>
       <th class="user_email"><%= t "page.admin.users.td_email" %></th>
       <th class="user_name"><%= t "page.admin.users.td_delete" %></th>
@@ -17,7 +21,11 @@
   <tbody>
       <% @users.each.with_index do |user, index| %>
         <tr>
-          <td><%= index +1 %></td>
+          <td>
+            <% params[:page] ||= "1" %>
+            <%= 1 + index + (params[:page].to_i-1)*Settings.category.per_word %>
+          </td>
+          <td><%= gravatar_for user, size: 50 %></td>
           <td><%= link_to user.name, user %></td>
           <td><%= user.email %></td>
           <td>

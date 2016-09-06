@@ -14,10 +14,14 @@
           class: "font-normal" %>
       <% end %>
     </br>
-      <%= text_field_tag :search, params[:search],
-        placeholder: t("page.word.search_placeholer") %>
-      <%= submit_tag t("page.word.filter") %>
-    <% end %>
+    <div class="form-group row">
+      <div class="col-xs-6">
+        <%= text_field_tag :search, params[:search], class: "form-control",
+          placeholder: t("page.word.search_placeholer") %>
+        <%= submit_tag t("page.word.filter"), class: "btn btn-primary clear"%>
+        <% end %>
+      </div>
+    </div>
   </div>
   <%= render "words/index.html.erb" %>
 </div>
