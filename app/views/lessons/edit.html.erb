@@ -1,9 +1,9 @@
 <%= form_for @lesson do |f| %>
-  <ol>
-    <%= f.fields_for :results do |builder| %>
-        <%= render "result", f: builder %>
-    <% end %>
-  </ol>
+<ol>
+  <%= f.fields_for :results do |builder| %>
+      <%= render "result", f: builder %>
+  <% end %>
+</ol>
 <div>
   <%= f.submit t("page.lessons.btn_save"), class: "btn btn-primary" %>
   <%= f.submit t("page.lessons.btn_submit"), class: "btn btn-primary",

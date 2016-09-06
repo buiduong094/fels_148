@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20160824023905) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
   create_table "results", force: :cascade do |t|
     t.integer  "word_answer_id"
     t.integer  "word_id"

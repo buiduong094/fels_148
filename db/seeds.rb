@@ -33,3 +33,10 @@ end
     Answer.create!(word_id:  word.id, content: content_answer4, is_correct: false)
   end
 end
+
+users = User.all
+user  = users.first
+following = users[2..15]
+followers = users[3..12]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

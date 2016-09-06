@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     @lessons = Lesson.user_own current_user
     @lessons = Lesson.paginate page: params[:page],
       per_page: Settings.lesson.per_page
+    if current_user.active_relationships.find_by(followed: @user.id).nil?
+      @active_relationship = current_user.active_relationships.build
+    else
+      @active_relationships = current_user.active_relationships
+        .find_by(followed_id: @user.id)
+    end
   end
 
   def create
