@@ -1,0 +1,27 @@
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for [:admin, @word] do |f| %>
+    <%= render "/shared/error_messages", object: f.object %>
+    <%= f.label :Category %>
+    <%= f.select :category_id, options_for_select(
+      @categories.collect{ |category| [category.name, category.id]},
+      params[:category_id]) %>
+    <br/>
+    <%= f.label :Questions %>
+    <%= f.text_field :content, class: "form-control" %>
+
+    <%= f.label :content, "Answer" %><br />
+    <div class="answers">
+      <%= f.fields_for :answers do |t| %>
+        <%= render "answer_fields", f: t %>
+      <% end %>
+      <br/>
+    </div>
+    <span class="btn btn-primary btn-xs pull-right">
+      <%= link_to_add_fields t("page.admin.words.add_answer"), f, :answers %>
+    </span>
+    <br/>
+    <br/>
+    <%= f.submit @button_in_form, id: "create_word",
+      class: "btn btn-primary" %>
+  <% end %>
+</div>

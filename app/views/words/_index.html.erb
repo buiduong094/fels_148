@@ -18,7 +18,7 @@
           <span class = "content">
             <%= link_to t("page.word.detail"), [:admin, word] %>
           </span>
-          <%= link_to t("page.word.update"), "#" %>
+          <%= link_to t("page.word.update"),  edit_admin_word_path(word) %>
           <%= link_to t("page.word.delete"), [:admin, word],
             method: :delete, data: {confirm: t("page.messages.notice"),
             remote: true}, class: "btn btn-danger btn-xs" %>
