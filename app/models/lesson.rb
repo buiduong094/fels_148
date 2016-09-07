@@ -5,6 +5,8 @@ class Lesson < ActiveRecord::Base
   has_many :results, dependent: :destroy
   validates :category, presence: true
 
+  accepts_nested_attributes_for :results
+
   scope :user_own, -> (user) {where user_id: user.id }
 
   def create_questions
@@ -21,7 +23,7 @@ class Lesson < ActiveRecord::Base
 
   def number_correct
     if self.is_complete?
-      Answer.correct_answers self.id
+      Answer.correct id
     end
   end
 end

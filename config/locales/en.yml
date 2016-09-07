@@ -3,7 +3,7 @@ en:
       formats:
         default: "%a, %d %b %Y %H:%M:%S"
   page:
-    framgia_system: "Framgia E-Learning System"
+    framgia_system: "E-Learning System"
     framgia_link: "recruit.framgia.vn/"
     framgia: "Framgia VN"
     email: "bui.van.duong@framgia.com"
@@ -80,15 +80,19 @@ en:
     messages:
       notice: "You are sure?"
     admin:
+      manager: "Manager"
       users:
         delete_user_success: "Delete user success"
         delete_user_fail: "Delete user fail"
         delete_confirm: "You sure?"
         title: "All users"
         placeholder_search: "search by name or email"
-        tr_STT: "STT"
-        tr_name: "Name"
-        tr: "Email"
+        td_STT: "STT"
+        td_avatar: "Avatar"
+        td_name: "Name"
+        td_email: "Email"
+        td_delete: "Delete"
+        btn_delete: "Delete"
         submit_search_users: "Search"
       categories:
         submit_create_new_category: "Create Category"

@@ -8,6 +8,6 @@ class Answer < ActiveRecord::Base
     FROM results r INNER JOIN lessons l
     ON r.lesson_id = l.id AND r.lesson_id = :lesson_id)"
 
-  scope :correct_answers, -> lesson_id {where QUERY, is_correct: true,
+  scope :correct, -> lesson_id {where QUERY, is_correct: true,
     lesson_id: lesson_id}
 end

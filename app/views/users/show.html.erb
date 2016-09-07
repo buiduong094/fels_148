@@ -16,11 +16,11 @@
         <table class="table table-user-information">
           <tbody>
             <tr>
-              <td><%= t "page.users.profile.td_name" %></td>
+              <td><b><%= t "page.users.profile.td_name" %></b></td>
               <td><%= @user.name %></td>
             </tr>
             <tr>
-              <td><%= t "page.users.profile.td_email" %></td>
+              <td><b><%= t "page.users.profile.td_email" %></b></td>
               <td><%= @user.email %></td>
             </tr>
           </tbody>
@@ -31,7 +31,7 @@
   <div class="panel-body">
     <h3><%= t "page.users.profile.title_lesson" %></h3>
     <div class="table-responsive table-condensed">
-      <table class="table">
+      <table class="table" id="list_user">
         <thead>
           <tr>
             <th><%= t "page.users.profile.td_index" %></th>
