@@ -1,29 +1,28 @@
 <% provide :title, t("page.admin.users.title") %>
-<h2><%= t "page.admin.users.title"  %></h2>
+<h1><%= t "page.admin.users.title"  %></h1>
 <%= form_tag admin_users_path, method: :get do %>
   <%= text_field_tag :search, params[:search],
     placeholder: t("page.admin.users.placeholder_search") %>
   <%= submit_tag t("page.admin.users.submit_search_users"), id: "searchbtn" %>
 <% end %>
-<%= will_paginate %>
-<table class="table table-hover">
-  <thead>
+<table class="table table-hover" id="list_user">
+  <thead class="title_table">
     <tr>
-      <th><%= t "page.admin.users.tr_STT" %></th>
-      <th><%= t "page.admin.users.tr_name" %></th>
-      <th><%= t "page.admin.users.tr_email" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_STT" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_name" %></th>
+      <th class="user_email"><%= t "page.admin.users.td_email" %></th>
+      <th class="user_name"><%= t "page.admin.users.td_delete" %></th>
     </tr>
   </thead>
   <tbody>
       <% @users.each.with_index do |user, index| %>
         <tr>
           <td><%= index +1 %></td>
-          <td><%= user.name %></td>
+          <td><%= link_to user.name, user %></td>
           <td><%= user.email %></td>
           <td>
             <% if current_user.is_admin? && !current_user.current_user?(user) %>
-              <%= link_to "user", user %>|
-              <%= link_to "delete-btn", [:admin, user], method: :delete,
+              <%= link_to image_tag("delete-user-icon.png"), [:admin, user], method: :delete,
                 data: {confirm: t("page.admin.users.delete_confirm")} %>
             <% end %>
           </td>
@@ -31,3 +30,4 @@
       <% end %>
   </tbody>
 </table>
+<%= will_paginate %>
