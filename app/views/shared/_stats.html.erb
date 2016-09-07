@@ -1,0 +1,12 @@
+<div class="stats">
+  <strong id="following" class="stats">
+    <%= link_to pluralize(@user.following.count,
+      t("page.users.relationships.number_following")),
+      relationship_path(@user, query:"following")%>
+  </strong>
+  <strong id="followers" class="stats">
+    <%= link_to pluralize(@user.followers.count,
+      t("page.users.relationships.number_followers")),
+      relationship_path(@user, query:"followers")%>
+  </strong>
+</div>

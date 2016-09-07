@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   resources :users, except: [:delete]
+  resources :relationships, only: [:create, :destroy, :show]
+
   resources :categories, only: [:index, :show] do
     resources :lessons, only: :create
   end
@@ -33,4 +35,6 @@ Rails.application.routes.draw do
       resources :answers, only: :index
     end
   end
+
+  resources :relationships, only: [:create, :destroy, :show]
 end

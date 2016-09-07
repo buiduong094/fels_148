@@ -117,6 +117,7 @@ en:
         create_fail: "Create a new word fail"
         create_overflow: "Sorry, answers no more size"
         update_success: "Update word success!"
+
     lessons:
       create_lesson_success: "Create lessons success"
       create_lesson_fail: "Create lessons fail"
@@ -138,6 +139,7 @@ en:
       show_my_lesson: "My lesson"
       show_my_lesson_msg: "This lesson is created at "
       err_create_lesson: "Number word of category not enough"
+
     users:
       profile:
         td_name: "Name"
@@ -148,4 +150,18 @@ en:
         td_status: "Status"
         stt_continue: "Continue"
         stt_finish: "Finish"
-        my_profile: "My profile"
+        my_profile: "%{user_name}"
+        following: "following"
+        followers: "followers"
+        user_nil: "Not found user"
+      relationships:
+        title_page_follow: "Follow Users"
+        msg_destroy: "Destroy success"
+        number_followers: "followers"
+        number_following: "following"
+        btn_follow: "Follow"
+        btn_unfollow: "Unfollow"
+        following: "Following"
+        followers: "Followers"
+        view_my_profile: "My profile"
+        cant_find_relationship: "Can't find relationships"

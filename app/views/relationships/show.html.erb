@@ -1,0 +1,25 @@
+<% provide :title, t("page.users.relationships.title_page_follow") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1><%= link_to @user.name, @user %></h1>
+      <%= render "shared/stats" %>
+    </section>
+  </aside>
+  <div class="col-md-4">
+    <h3><%= t "page.users.relationships.following" %></h3>
+    <% @users.each do |following| %>
+      <div>
+        <%= link_to following.name, following %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h3><%= t "page.users.relationships.followers" %></h3>
+    <% @users.each do |follower| %>
+      <div>
+        <%= link_to follower.name, follower %>
+      </div>
+    <% end %>
+  </div>
+</div>

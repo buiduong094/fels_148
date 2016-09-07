@@ -4,13 +4,17 @@
     <div class="row">
       <section class="user_info  text-center">
         <h1>
-          <%= t "page.users.profile.my_profile" %>
+          <%= t "page.users.profile.my_profile", user_name: @user.name %>
         </h1>
       </section>
     </div>
     <div class="row">
       <div class="col-md-3 col-lg-3" align="center">
         <%= gravatar_for @user %>
+        <section class="stats">
+          <%= render "shared/stats" %>
+        </section>
+        <%= render "follow_form" if logged_in? %>
       </div>
       <div class="col-md-9 col-lg-9">
         <table class="table table-user-information">
@@ -47,7 +51,8 @@
                 <td><%= link_to (lesson.is_complete? ?
                   t("page.users.profile.stt_finish")
                   : t("page.users.profile.stt_continue")),
-                  lesson_path(lesson) %></td>
+                  lesson_path(lesson) %>
+                </td>
               </tr>
             <% end %>
           </tbody>

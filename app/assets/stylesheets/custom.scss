@@ -188,7 +188,6 @@ input {
 }
 }
 
-
 #list_user {
   border: 1px solid #e7e7e7;
   .title_table {
@@ -199,4 +198,28 @@ input {
   float: left;
   margin-left: 2px;
   margin-bottom: 10px;
+}
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  font-size: 15px !important;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: black;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
 }

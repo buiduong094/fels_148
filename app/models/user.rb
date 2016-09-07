@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :activities
-  has_many :lessons
+  has_many :lessons, dependent: :destroy
+  has_many :active_relationships, class_name: Relationship.name,
+    foreign_key: :follower_id, dependent: :destroy
+  has_many :passive_relationships, class_name: Relationship.name,
+    foreign_key: :followed_id, dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
@@ -21,6 +25,18 @@ class User < ActiveRecord::Base
     query = "category_id = :category_id AND id in (select word_id FROM results
       INNER JOIN lessons ON user_id = :user_id)"
     Word.where(query, category_id: category_id, user_id: id).count
+  end
+
+  def follow other_user
+    active_relationships.create followed_id: other_user.id
+  end
+
+  def unfollow other_user
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following? other_user
+    following.include? other_user
   end
 
   scope :search, ->(keyword) { where("name LIKE ?", "%#{keyword}%") }
