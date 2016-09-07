@@ -39,4 +39,14 @@ module ApplicationHelper
       "add_fields(this, '#{association}', '#{escape_javascript(fields)}')",
       :class => "btn")
   end
+
+  def get_object_by_id model, id
+    result = model.find_by id: id
+    result.nil? ? redirect_to(root_path) : result
+  end
+
+  def lession_complete_button lesson
+    lesson.is_complete? ? t("page.users.profile.stt_finish") :
+      t("page.users.profile.stt_continue")
+  end
 end

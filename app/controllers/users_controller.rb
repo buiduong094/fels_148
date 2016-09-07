@@ -1,4 +1,3 @@
-
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:show, :new, :create]
   before_action :correct_user, only: [:edit, :update]
@@ -23,7 +22,7 @@ class UsersController < ApplicationController
     if current_user.active_relationships.find_by(followed: @user.id).nil?
       @active_relationship = current_user.active_relationships.build
     else
-      @active_relationships = current_user.active_relationships
+      @active_relationship = current_user.active_relationships
         .find_by(followed_id: @user.id)
     end
   end
