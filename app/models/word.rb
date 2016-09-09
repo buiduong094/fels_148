@@ -5,6 +5,9 @@ class Word < ActiveRecord::Base
 
   validate :number_answer_overflow
 
+  accepts_nested_attributes_for :answers, allow_destroy: true,
+    reject_if: proc{|attributes| attributes["content"].blank?}
+  after_initialize :build_word_answers
   QUERY_LEARNED = "content like :search and id in (select word_id
     FROM results r INNER JOIN lessons l
     ON r.lesson_id = l.id AND l.user_id = :user_id)"

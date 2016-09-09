@@ -40,5 +40,5 @@ class User < ActiveRecord::Base
   end
 
   scope :search, ->(keyword) { where("name LIKE ?", "%#{keyword}%") }
-  default_scope -> { order(name: :asc) }
+
 end

@@ -33,31 +33,38 @@
     </div>
   </div>
   <div class="panel-body">
-    <h3><%= t "page.users.profile.title_lesson" %></h3>
-    <div class="table-responsive table-condensed">
-      <table class="table" id="list_user">
-        <thead>
-          <tr>
-            <th><%= t "page.users.profile.td_index" %></th>
-            <th><%= t "page.users.profile.td_date" %></th>
-            <th><%= t "page.users.profile.td_status" %></th>
-          </tr>
-        </thead>
-          <tbody>
-            <% @lessons.each.with_index do |lesson, index| %>
-              <tr>
-                <td><%= index+1 %></td>
-                <td><%= lesson.created_at %></td>
-                <td><%= link_to (lesson.is_complete? ?
-                  t("page.users.profile.stt_finish")
-                  : t("page.users.profile.stt_continue")),
-                  lesson_path(lesson) %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
+    <div class="col-md-9 col-lg-5">
+      <h3><%= t "page.users.profile.title_lesson" %></h3>
+      <div class="table-responsive table-condensed">
+        <table class="table" id="list_user">
+          <thead>
+            <tr>
+              <th><%= t "page.users.profile.td_index" %></th>
+              <th><%= t "page.users.profile.td_date" %></th>
+              <th><%= t "page.users.profile.td_status" %></th>
+            </tr>
+          </thead>
+            <tbody>
+              <% @lessons.each.with_index do |lesson, index| %>
+                <tr>
+                  <td><%= index+1 %></td>
+                  <td><%= lesson.created_at %></td>
+                  <td>
+                    <%= link_to lession_complete_button(lesson),
+                      lesson_path(lesson) %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+        <%= will_paginate @lessons %>
+      </div>
+    </div>
+    <div class="col-md-9 col-lg-6">
+      <h3><%= t "page.users.profile.title_activities" %></h3>
+      <table class="table">
+        <%= render partial: "shared/activity", collection: @user.activities %>
       </table>
-      <%= will_paginate @lessons %>
     </div>
   </div>
   <div class="panel-footer">

@@ -14,6 +14,7 @@ en:
     michaelhartl_link: "http://www.michaelhartl.com/"
     rubyonrailstutorials: "Ruby on Rails Tutorial"
     rails_link: "http://www.railstutorial.org/"
+    time_ago: "at %{time} ago"
     about:
       title: "About"
       description: "The Framgia E-Learning System is a website to learn vocabulary with Ruby on Rails"
@@ -35,6 +36,7 @@ en:
     logout: "Log out"
     login_danger: "Please login!"
     wellcome: "Welcome to the"
+    detail: "detail"
     register:
       create_user: "Create my account"
       signup: "Sign up "
@@ -165,3 +167,10 @@ en:
         followers: "Followers"
         view_my_profile: "My profile"
         cant_find_relationship: "Can't find relationships"
+    activities:
+      create_lesson: "created new lesson"
+      finish_lesson: "finished lesson"
+      follow: "follow"
+      unfollow: "unfollow"
+      content: "You %{content}"
+      activity_lesson_content: "%{content} in %{name}"

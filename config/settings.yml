@@ -19,3 +19,5 @@ lesson:
 size_icon_true_false: 30
 relationships:
   per_page: 5
+activities:
+  per_page: 20
