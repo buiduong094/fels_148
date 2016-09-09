@@ -3,7 +3,7 @@
   <div class="profile">
     <div class="profile_left">
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-5">
           <h1><%= t "page.users.profile.my_profile", user_name: @user.name %></h1>
           <table class="table table-user-information">
             <tbody>
@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="panel-body">
-    <div class="col-md-9 col-lg-7">
+    <div class="col-md-9 col-lg-5">
       <h3 class="lessons_learned_list">
         <%= t "page.users.profile.title_lesson" %>
       </h3>
@@ -72,11 +72,12 @@
         <%= will_paginate @lessons %>
       </div>
     </div>
-    <div class="col-md-9 col-lg-5">
-      <h3 class="activities"><%= t "page.activities.title_activities" %></h3>
-      <table class="table">
-        <%= render partial: "shared/activity", collection: @user.activities %>
+    <div class="col-md-9 col-lg-7">
+      <h3><%= t "page.users.profile.title_activities" %></h3>
+      <table class="table table_activities">
+        <%= render partial: "shared/activity", collection: @activities %>
       </table>
+      <h2 class="end_result"><%= t "page.home.end" %></h2>
     </div>
   </div>
   <div class="panel-footer">
@@ -87,3 +88,4 @@
     </span>
   </div>
 </div>
+<input type="hidden" class="page-scroll" value="users"/>

@@ -248,3 +248,50 @@ footer {
     height: auto !important;
   }
 }
+.end_result {
+  display: none;
+}
+.user_homepage {
+  position: fixed;
+  div {
+    img {
+      height: 50px;
+      float:left;
+    }
+    h1 {
+      text-align: left;
+    }
+    section {
+      div {
+        margin-top:-2px;
+        strong {
+          float: left;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  section {
+    margin-top: 30px;
+  }
+  .button {
+    a:first-child{
+      float:left;
+    }
+  }
+}
+
+.container {
+  .categories {
+    list-style: none;
+    margin-top: 70px;
+    li {
+        height: 235px;
+      h1 {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        font-size: 2em;
+      }
+    }
+  }
+}
