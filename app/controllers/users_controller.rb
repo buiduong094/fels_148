@@ -26,6 +26,17 @@ class UsersController < ApplicationController
       @active_relationship = current_user.active_relationships
         .find_by(followed_id: @user.id)
     end
+    @activities = @user.activities.order("created_at DESC")
+      .paginate page: params[:page_activities],
+      per_page: Settings.activities.per_page
+    respond_to do |format|
+      format.html
+      format.json {render json: {
+        content: render_to_string({
+          partial: "shared/activities", formats: "html", layout: false
+        })
+      }}
+    end
   end
 
   def create

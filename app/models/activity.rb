@@ -1,6 +1,6 @@
 class Activity < ActiveRecord::Base
   belongs_to :user
-  enum activity_types: [:create_lesson, :finish_lession, :follow, :un_follow]
+  enum activity_types: [:create_lesson, :update_lesson, :follow, :un_follow]
 
   QUERY_ACTIVYTIES_IN_USER = "user_id = :user_id OR user_id in (select followed_id
     FROM relationships where follower_id = :user_id)"

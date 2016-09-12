@@ -1,9 +1,31 @@
 <% if logged_in? %>
-  <h3 class="center"><%= t ".activity_title" %></h3>
-  <table class="table">
-    <%= render partial: "shared/activity", collection: @activities %>
-  </table>
-  <%= will_paginate @activities %>
+  <div class="center user_homepage col-md-3">
+    <div>
+      <%= link_to @user do %>
+        <%= gravatar_for current_user %>
+        <h1>
+          <%= t "page.users.profile.my_profile", user_name: @user.name %>
+        </h1>
+      <% end %>
+      <section class="stats">
+        <%= render "shared/stats" %>
+      </section>
+    </div>
+    <section class="button">
+      <%= link_to t("page.home.button_start_lesson"), categories_path,
+        class: "btn btn-default" %>
+      <%= link_to t("page.home.button_word_list"), words_path,
+        class: "btn btn-default" %>
+    </section>
+  </div>
+  <div class="jumbotron col-md-9 pull-right">
+    <h3 class="center"><%= t ".activity_title" %></h3>
+    <table class="table table_activities">
+      <%= render partial: "shared/activity", collection: @activities %>
+    </table>
+    <h2 class="end_result"><%= t "page.home.end" %></h2>
+    <input type="hidden" class="page-scroll" value="home"/>
+  </div>
 <% else %>
   <div class="jumbotron">
     <div><h1><%= t "page.home_tt" %></h1></div>

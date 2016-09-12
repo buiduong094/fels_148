@@ -29,6 +29,9 @@ en:
       description: "This is the home page for the Ruby on Rails Tutorial Framgia E-Learning System sample application."
       signup: "Sign up"
       signin: "Sign in"
+      button_word_list: "Word List"
+      button_start_lesson: "Start Lesson"
+      end: "--End--"
     help:
       title: "Help"
       description: "To get help on this app, send email to: bui.van.duong@framgia.com."
@@ -192,7 +195,7 @@ en:
         cant_find_relationship: "Can't find relationships"
     activities:
       create_lesson: "created new lesson"
-      finish_lesson: "finished lesson"
+      update_lesson: "update a lesson"
       follow: "follow"
       unfollow: "unfollow"
       content: "You %{content}"

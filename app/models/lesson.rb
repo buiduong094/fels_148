@@ -36,8 +36,8 @@ class Lesson < ActiveRecord::Base
   end
 
   def update_lesson_activity
-    create_activity Activity.activity_types[:finish_lession],
-      I18n.t("page.activities.finish_lesson")
+    create_activity Activity.activity_types[:update_lesson],
+      I18n.t("page.activities.update_lesson")
   end
 
   def create_activity action_type, content
