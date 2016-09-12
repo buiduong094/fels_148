@@ -127,6 +127,7 @@ en:
         title_page_update: "Update category"
         add: "Add category"
         title: "Manager Categories"
+
       words:
         td_index: "Index"
         td_category: "Category"
@@ -193,6 +194,8 @@ en:
         followers: "Followers"
         view_my_profile: "My profile"
         cant_find_relationship: "Can't find relationships"
+      remember_login: "Remember me on this computer"
+
     activities:
       create_lesson: "created new lesson"
       update_lesson: "update a lesson"
