@@ -1,7 +1,11 @@
 <footer class="footer">
-  <nav>
+  <div class="row">
+    <small><%= link_to t("page.fan_page_facebook"),
+      "https://www.facebook.com/FramgiaVietnam/?fref=ts" %>
+    </small>
     <ul>
       <li><%= link_to t("page.about.about"), about_path %></li>
+      <li><%= link_to t("page.help.help"), help_path %></li>
     </ul>
-  </nav>
+  </div>
 </footer>

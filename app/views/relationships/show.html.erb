@@ -6,20 +6,33 @@
       <%= render "shared/stats" %>
     </section>
   </aside>
-  <div class="col-md-4">
-    <h3><%= t "page.users.relationships.following" %></h3>
-    <% @users.each do |following| %>
-      <div>
-        <%= link_to following.name, following %>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-md-4">
-    <h3><%= t "page.users.relationships.followers" %></h3>
-    <% @users.each do |follower| %>
-      <div>
-        <%= link_to follower.name, follower %>
-      </div>
-    <% end %>
+  <div class="panel-body">
+    <div class="table-responsive table-condensed">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t "page.users.profile.td_name" %></th>
+            <th><%= t "page.users.profile.td_email" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if current_user.following? @user %>
+            <% @users.each do |following| %>
+              <tr>
+                <td><%= link_to following.email, following %></td>
+                <td><%= following.email %></td>
+              </tr>
+            <% end %>
+          <% else %>
+            <% @users.each do |followers| %>
+              <tr>
+                <td><%= link_to followers.name, followers %></td>
+                <td><%= followers.email %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

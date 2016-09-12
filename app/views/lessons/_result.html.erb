@@ -5,19 +5,18 @@
       <%= f.radio_button :word_answer_id, answer.id,
         disabled: f.object.lesson.is_complete? %>
       <%= answer.content %>
-    </div>
-    <% if f.object.lesson.is_complete? %>
-      <div>
+      <% if f.object.lesson.is_complete? %>
         <% if answer.is_correct %>
-          <font color="green">
-            <%= t "page.lessons.correct_answer" %>
-          </font>
+          <%= image_tag "true.png", alt: t("page.word.icon_true"),
+            width: Settings.size_icon_true_false,
+            height: Settings.size_icon_true_false %>
         <% else %>
           <font color="red">
             <%= t "page.lessons.incorrect_answer" %>
           </font>
         <% end %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
+  <br>
 </div>

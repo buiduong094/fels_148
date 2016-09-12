@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:show, :new, :create]
-  before_action :correct_user, only: [:edit, :update]
   before_action :load_user, except: [:index, :new, :create]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     if params[:search]
       @users = User.search(params[:search]).paginate page: params[:page]
     else
-      @users = User.paginate(page: params[:page])
+      @users = User.all.paginate page: params[:page],
+        per_page: Settings.admin.users.per_page
     end
   end
 
