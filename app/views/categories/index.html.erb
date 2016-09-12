@@ -8,16 +8,18 @@
 </div>
 <ul class="categories box text-center">
   <% @categories.each do |category| %>
-    <li class="col-md-6 panel panel-info">
-      <h1 class="panel-title label-primary"><%= category.name %><h1>
-      <h2>
-        <%= t "page.category.user_learn" %>
-        <%= current_user.number_words_learend_in_category category.id %>
-        <%= t "page.category.sign" %> <%= category.words.count %>
-      </h2>
-      <%= link_to t("page.lessons.link_create_lesson"),
-        category_lessons_path(category), method: :post,
-        class: "btn btn-default" %>
+    <li class="col-md-4">
+      <div class="panel panel-info">
+        <h1 class="panel-title label-primary"><%= category.name %><h1>
+        <h2>
+          <%= t "page.category.user_learn" %>
+          <%= current_user.number_words_learend_in_category category.id %>
+          <%= t "page.category.sign" %> <%= category.words.count %>
+        </h2>
+        <%= link_to t("page.lessons.link_create_lesson"),
+          category_lessons_path(category), method: :post,
+          class: "btn btn-default" %>
+      </div>
     </li>
   <% end %>
   <%= will_paginate %>

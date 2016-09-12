@@ -6,9 +6,12 @@
     <%= form_for :session, url: login_path do |f| %>
 
       <%= f.label :email %>
+      <br/>
       <%= f.email_field :email, class: "form-control" %>
 
+      <br/>
       <%= f.label :password %>
+      <br/>
       <%= f.password_field :password, class: "form-control" %>
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
@@ -16,6 +19,7 @@
         <span><%= t "page.users.remember_login" %></span>
       <% end %>
 
+      <br/>
       <%= f.submit t("page.login"), class: "btn btn-primary" %>
     <% end %>
 

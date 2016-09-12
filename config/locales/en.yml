@@ -143,6 +143,8 @@ en:
         create_success: "Create a new word success"
         create_fail: "Create a new word fail"
         create_overflow: "Sorry, answers no more size"
+        create_minimum: "Sorry, answers is too small"
+        validate_answer_true: "Number answer-correct must be 1"
         update_success: "Update word success!"
         remove_answer: "Remove"
         link_create_word: "Add"

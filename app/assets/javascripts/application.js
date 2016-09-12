@@ -17,8 +17,12 @@
 //= require_tree .
 
 function remove_fields(link) {
-  $(link).prev('input[type=hidden]').val('1');
-  $(link).closest(".fields").hide();
+  if($(link).closest(".fields").find('input[type=checkbox]').is(':checked')){
+    alert('No delete correct answer');
+  }else{
+    $(link).prev('input[type=hidden]').val('1');
+    $(link).closest(".fields").hide();
+  }
 }
 
 function add_fields(link, association, content) {
@@ -27,7 +31,7 @@ function add_fields(link, association, content) {
   $("div.answers").append(content.replace(regexp, new_id));
 }
 
-$(document).ready(function(){
+$(document).on('ready page:load', function(){
   $('.answers').on('change', 'input[type=checkbox]',function(){
     $('.answers').find('input[type=checkbox]').not(this).attr('checked', false);
   })
