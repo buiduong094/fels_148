@@ -186,6 +186,7 @@ en:
         td_index: "STT"
         td_date: "Created Date"
         td_status: "Status"
+        td_result: "Results"
         stt_continue: "Continue"
         stt_finish: "Complete"
         my_profile: "%{user_name}"
@@ -215,3 +216,4 @@ en:
       content: "You %{content}"
       activity_lesson_content: "%{content} in %{name}"
       title_activities: "Activities"
+      at: "at"

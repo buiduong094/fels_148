@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
 
   def number_words_learend_in_category category_id
     query = "category_id = :category_id AND id in (select word_id FROM results
-      INNER JOIN lessons ON user_id = :user_id)"
+      INNER JOIN lessons ON user_id = :user_id AND lessons.id= results.lesson_id)"
     Word.where(query, category_id: category_id, user_id: id).count
   end
 

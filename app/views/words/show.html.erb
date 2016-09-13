@@ -12,15 +12,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-1"></div>
-          <div class="col-lg-5">
-            <h5><% answer.id %><%= answer.content %></h5>
-          </div>
           <% if answer.is_correct %>
+            <div class="col-lg-5">
+              <h5>answer: <% answer.id %><%= answer.content %></h5>
+            </div>
             <%= image_tag "true.png", alt: t("page.word.icon_true"),
-              width: Settings.size_icon_true_false,
-              height: Settings.size_icon_true_false %>
-          <% else %>
-            <%= image_tag "false.png", alt: t("page.word.icon_false"),
               width: Settings.size_icon_true_false,
               height: Settings.size_icon_true_false %>
           <% end %>

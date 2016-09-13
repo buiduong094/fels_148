@@ -6,6 +6,8 @@
           <% if current_user? activity.user %>
             <%= t "page.activities.content", content: activity.content %>
             <% if activity.action_type < 2 %>
+              <%= t "page.activities.at"%>
+              <%= localize_time get_object_by_id(Lesson, activity.target_id).created_at %>
               <%= link_to t("page.detail"),
                 get_object_by_id(Lesson, activity.target_id) %>
             <% else %>

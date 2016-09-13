@@ -44,6 +44,7 @@
             <tr>
               <th><%= t "page.users.profile.td_index" %></th>
               <th><%= t "page.users.profile.td_date" %></th>
+              <th><%= t "page.users.profile.td_result" %></th>
               <th><%= t "page.users.profile.td_status" %></th>
             </tr>
           </thead>
@@ -54,10 +55,15 @@
                 <td><%= localize_time lesson.created_at %></td>
                 <% if lesson.is_complete? %>
                   <td>
+                    <%= lesson.number_correct.count.to_s + "/" +
+                                lesson.results.count.to_s %>
+                  </td>
+                  <td>
                     <%= link_to t("page.users.profile.stt_finish"),
                       lesson_path(lesson), class: "btn btn-success" %>
                   </td>
                 <% else %>
+                  <td></td>
                   <td>
                     <%= link_to t("page.users.profile.stt_continue"),
                       lesson_path(lesson), class: "btn btn-primary" %>
