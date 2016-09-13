@@ -11,6 +11,7 @@ admin:
   words:
     default_size_word_answers: 4
     max_size_word_answers: 7
+    min_size_word_answers: 2
   users:
     per_page: 10
 lesson:

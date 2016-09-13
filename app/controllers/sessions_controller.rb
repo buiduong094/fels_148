@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
         log_in user
         params[:session][:remember_me] == Settings.remembered ? remember(user) :
           forget(user)
-        redirect_back_or user
+        redirect_to root_path
       else
         flash.now[:danger] = t "page.invalid_email"
         render :new

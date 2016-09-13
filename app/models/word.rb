@@ -59,6 +59,12 @@ class Word < ActiveRecord::Base
   def number_answer_overflow
     if answers.length > Settings.admin.words.max_size_word_answers
       errors.add :word, I18n.t("page.admin.words.create_overflow")
+    elsif answers.length < Settings.admin.words.min_size_word_answers
+      errors.add :word, I18n.t("page.admin.words.create_minimum")
+    end
+    size_correct_content = answers.select{|answer| answer.is_correct?}.size
+    if size_correct_content != 1
+      errors.add :word, I18n.t("page.admin.words.validate_answer_true")
     end
   end
 end
