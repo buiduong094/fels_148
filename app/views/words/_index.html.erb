@@ -15,7 +15,7 @@
   </thead>
   <tbody>
     <% @words.each_with_index do |word, index| %>
-      <tr>
+      <tr id = "word_<%="#{word.id}"%>">
         <td>
           <% params[:page] ||= "1" %>
           <%= 1 + index + (params[:page].to_i-1)*Settings.category.per_word %>

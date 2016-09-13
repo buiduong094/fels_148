@@ -42,7 +42,14 @@ module ApplicationHelper
 
   def get_object_by_id model, id
     result = model.find_by id: id
-    result.nil? ? redirect_to(root_path) : result
+  end
+
+  def check_activity activity
+    if activity.action_type > 1
+      get_object_by_id(User, activity.target_id)
+    else
+      get_object_by_id(Lesson, activity.target_id)
+    end
   end
 
   def lession_complete_button lesson

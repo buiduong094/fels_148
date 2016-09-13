@@ -36,12 +36,14 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    if @category.destroy
-      respond_to do |format|
-        format.html {redirect_to categories_url}
-        format.js
+    if @category.words.length == 0 && @category.lessons.length == 0
+      if deleted = @category.destroy
+        flash[:success] = t "page.admin.categories.delete_success"
       end
+    else
+      flash[:danger] = t "page.admin.categories.delete_fail"
     end
+    redirect_to admin_categories_url
   end
 
   private
