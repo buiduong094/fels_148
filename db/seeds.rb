@@ -2,7 +2,7 @@ User.create!(name:  "admin", email: "admin@framgia.com",
   password: "123456", is_admin: true, password_confirmation: "123456")
 
 20.times do |n|
-  name = "name - #{n+1}"
+  name  = Faker::Name.name
   email = "account-#{n+1}@railstutorial.org"
   password = "abc123"
   User.create!(name:  name,
@@ -14,22 +14,22 @@ end
 
 10.times do |category|
   name  = "Category #{category+1}"
-  description = "day la mon thu #{category+1}"
+  description = "Here is the description of the #{category+1} course"
   Category.create!(name:  name, description: description)
 end
 
 5.times do |category|
   category_id = category+1;
   20.times do |i|
-    content = "word #{i+1}"
+    content = "This is the content of the question #{i+1} of No. #{category_id}"
     word = Word.create!(category_id: category_id, content: content)
-    content_answer1 = "answer 1"
+    content_answer1 = "This is the content of answers 1"
     Answer.create!(word_id:  word.id, content: content_answer1, is_correct: true)
-    content_answer2 = "answer 2"
+    content_answer2 = "This is the content of answers 2"
     Answer.create!(word_id:  word.id, content: content_answer2, is_correct: false)
-    content_answer3 = "answer 3"
+    content_answer3 = "This is the content of answers 3"
     Answer.create!(word_id:  word.id, content: content_answer3, is_correct: false)
-    content_answer4 = "answer 4"
+    content_answer4 = "This is the content of answers 4"
     Answer.create!(word_id:  word.id, content: content_answer4, is_correct: false)
   end
 end

@@ -1,6 +1,6 @@
 <% provide :title, t("page.word.title") %>
 <div class="center">
-  <div class="filter">
+  <div class="filter filter_padding">
     <%= form_tag words_path, method: :get, id: "search-form" do %>
       <%= t "page.category.title" %>:
       <%= select_tag( :category_id, options_for_select(@categories

@@ -17,7 +17,7 @@ body{
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #ffe6e6;
   h2 {
     text-align: left;
     font-weight: bold;
@@ -312,4 +312,20 @@ footer {
 
 .filter_padding{
   padding-top:30px;
+}
+
+.show_answer{
+  h4, h2 .h_answer{
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+}
+
+.tbody_profile{
+  margin-left: 30px;
+  padding-right: 30px;
+}
+
+tbody_activities{
+  margin-left: 20px;
 }
