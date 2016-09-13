@@ -4,12 +4,12 @@
       <div class="col-md-7">
         <%= f.text_field :content , class: "form-control"%>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-1">
         <%= f.check_box :is_correct , id: "answer", class: "BOOLEAN"%>
       </div>
-      <span class="btn btn-danger btn-xs pull-right">
+      <div class="btn btn-danger btn-xs pull-right">
         <%= link_to_remove_fields t("page.admin.words.remove_answer"), f%>
-      </span>
+      </div>
     </div>
     <br />
   </div>

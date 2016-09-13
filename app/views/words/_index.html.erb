@@ -23,15 +23,26 @@
         <td><%= word.category.name %></td>
         <td><%= word.content %></td>
         <% if current_user.is_admin %>
-          <td><%= link_to t("page.word.detail"), [:admin, word] %></td>
-          <td><%= link_to t("page.word.update"),  edit_admin_word_path(word) %></td>
           <td>
-            <%= link_to t("page.word.delete"), [:admin, word],
+            <%= link_to t("page.admin.words.link_detail"), [:admin, word],
+              class: "btn btn-info glyphicon glyphicon-list-alt" %>
+          </td>
+          <td>
+            <%= link_to t("page.admin.words.link_update"),
+              edit_admin_word_path(word),
+              class: "btn btn-warning glyphicon glyphicon-edit" %>
+          </td>
+          <td>
+            <%= link_to t("page.admin.words.link_delete"), [:admin, word],
               method: :delete, data: {confirm: t("page.messages.notice"),
-              remote: true}, class: "btn btn-danger btn-xs" %>
+              remote: true},
+              class: "btn btn-danger glyphicon glyphicon-trash" %>
           </td>
         <% else %>
-          <td><%= link_to t("page.word.detail"), word %></td>
+          <td>
+            <%= link_to t("page.word.detail"), word,
+              class: "btn btn-info glyphicon glyphicon-list-alt" %>
+          </td>
         <% end %>
       </tr>
     <% end %>

@@ -1,27 +1,36 @@
-<div class = "center">
-  <h4><%= "#{t "page.category.title"}: #{@word.category.name}" %></h4>
-  <h2>
+<div class="show_answer">
+  <h4 class="h_answer">
+    <%= "#{t "page.category.title"}: #{@word.category.name}" %>
+  </h4>
+  <h4 class="h_answer">
     <%= "#{t "page.category.description"}: #{@word.category.description}" %>
-  </h2>
-  <h2><%= "#{t "page.word.title"}: #{@word.content}" %></h2>
-  <h2>
-    <%= t "page.answer.title"%><%= t "page.word.two_dots"%>
-    <br/>
+  </h4>
+  <hr>
+  <h4><%= "#{t "page.word.title"}: #{@word.content}" %></h4>
+  <h4>
     <% @word.answers.each do |answer| %>
-      <h3><%= answer.content %></h3>
-      <% if answer.is_correct %>
-        <%= image_tag "true.png", alt: t("page.word.icon_true"),
-          width: Settings.size_icon_true_false,
-          height: Settings.size_icon_true_false %>
-      <% else %>
-        <%= image_tag "false.png", alt: t("page.word.icon_false"),
-          width: Settings.size_icon_true_false,
-          height: Settings.size_icon_true_false %>
-      <% end %>
-      <br/>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <div class="col-lg-5">
+            <h5><%= answer.content %></h5>
+          </div>
+          <% if answer.is_correct %>
+            <%= image_tag "true.png", alt: t("page.word.icon_true"),
+              width: Settings.size_icon_true_false,
+              height: Settings.size_icon_true_false %>
+          <% else %>
+            <%= image_tag "false.png", alt: t("page.word.icon_false"),
+              width: Settings.size_icon_true_false,
+              height: Settings.size_icon_true_false %>
+          <% end %>
+          <br/>
+        </div>
+      </div>
     <% end %>
-  </h2>
-  <span class="btn btn-success" %>
-    <%= link_to t("page.admin.words.update"),  edit_admin_word_path(@word) %>
+  </h4>
+  <span%>
+    <%= link_to t("page.admin.words.update"),  edit_admin_word_path(@word),
+      class: "btn btn-warning glyphicon glyphicon-edit" %>
   </span>
 </div>
