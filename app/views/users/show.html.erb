@@ -38,43 +38,37 @@
       <h3 class="lessons_learned_list">
         <%= t "page.users.profile.title_lesson" %>
       </h3>
-      <% if @lesson %>
-        <div class="table-responsive table-condensed">
-          <table class="table" id="list_user">
-            <thead>
+      <div class="table-responsive table-condensed">
+        <table class="table" id="list_user">
+          <thead>
+            <tr>
+              <th><%= t "page.users.profile.td_index" %></th>
+              <th><%= t "page.users.profile.td_date" %></th>
+              <th><%= t "page.users.profile.td_status" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.lessons.each.with_index do |lesson, index| %>
               <tr>
-                <th><%= t "page.users.profile.td_index" %></th>
-                <th><%= t "page.users.profile.td_date" %></th>
-                <th><%= t "page.users.profile.td_status" %></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @lessons.each.with_index do |lesson, index| %>
-                <% if current_user? lesson.user %>
-                  <tr>
-                    <td><%= index+1 %></td>
-                    <td><%= localize_time lesson.created_at %></td>
-                    <% if lesson.is_complete? %>
-                      <td>
-                        <%= link_to t("page.users.profile.stt_finish"),
-                          lesson_path(lesson), class: "btn btn-success" %>
-                      </td>
-                    <% else %>
-                      <td>
-                        <%= link_to t("page.users.profile.stt_continue"),
-                          lesson_path(lesson), class: "btn btn-primary" %>
-                      </td>
-                    <% end %>
-                  </tr>
+                <td><%= index+1 %></td>
+                <td><%= localize_time lesson.created_at %></td>
+                <% if lesson.is_complete? %>
+                  <td>
+                    <%= link_to t("page.users.profile.stt_finish"),
+                      lesson_path(lesson), class: "btn btn-success" %>
+                  </td>
+                <% else %>
+                  <td>
+                    <%= link_to t("page.users.profile.stt_continue"),
+                      lesson_path(lesson), class: "btn btn-primary" %>
+                  </td>
                 <% end %>
-              <% end %>
-            </tbody>
-          </table>
-          <%= will_paginate @lessons %>
-        </div>
-      <% else %>
-        <h5><%= t "page.users.profile.msg_not_lesson" %></h5>
-      <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= will_paginate @lessons %>
+      </div>
     </div>
     <div class="col-md-9 col-lg-5">
       <h3 class="activities"><%= t "page.users.profile.title_activities" %></h3>

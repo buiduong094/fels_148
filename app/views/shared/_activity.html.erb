@@ -1,34 +1,36 @@
-<tr>
-  <td>
-    <div class="activity">
-      <span class="activity_content">
-        <% if current_user? activity.user %>
-          <%= t "page.activities.content", content: activity.content %>
-          <% if activity.action_type < 2 %>
-            <%= link_to t("page.detail"),
-              get_object_by_id(Lesson, activity.target_id) %>
+<% if check_activity activity %>
+  <tr>
+    <td>
+      <div class="activity">
+        <span class="activity_content">
+          <% if current_user? activity.user %>
+            <%= t "page.activities.content", content: activity.content %>
+            <% if activity.action_type < 2 %>
+              <%= link_to t("page.detail"),
+                get_object_by_id(Lesson, activity.target_id) %>
+            <% else %>
+              <%= link_to get_object_by_id(User, activity.target_id).name,
+                get_object_by_id(User, activity.target_id) %>
+            <% end %>
           <% else %>
-            <%= link_to get_object_by_id(User, activity.target_id).name,
-              get_object_by_id(User, activity.target_id) %>
+            <%= link_to activity.user.name, activity.user %>
+            <% if activity.action_type < 2 %>
+              <%= t "page.activities.activity_lesson_content",
+                content: activity.content,
+                name: get_object_by_id(Lesson, activity.target_id)
+                  .category.name %>
+            <% else %>
+              <%= activity.content %>
+              <%= link_to get_object_by_id(User, activity.target_id).name,
+                get_object_by_id(User,activity.target_id) %>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to activity.user.name, activity.user %>
-          <% if activity.action_type < 2 %>
-            <%= t "page.activities.activity_lesson_content",
-              content: activity.content,
-              name: get_object_by_id(Lesson, activity.target_id)
-                .category.name %>
-          <% else %>
-            <%= activity.content %>
-            <%= link_to get_object_by_id(User, activity.target_id).name,
-              get_object_by_id(User,activity.target_id) %>
-          <% end %>
-        <% end %>
-      </span>
-      <div class="timestamp">
-        <span class="glyphicon glyphicon-calendar"></span>
-        <%= t "page.time_ago", time: time_ago_in_words(activity.created_at) %>
+        </span>
+        <div class="timestamp">
+          <span class="glyphicon glyphicon-calendar"></span>
+          <%= t "page.time_ago", time: time_ago_in_words(activity.created_at) %>
+        </div>
       </div>
-    </div>
-  </td>
-</tr>
+    </td>
+  </tr>
+<% end %>

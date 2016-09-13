@@ -4,7 +4,7 @@ class Lesson < ActiveRecord::Base
   belongs_to :category
   has_many :results, dependent: :destroy
   validates :category, presence: true
-
+  validate :validate_words_size
   after_create :create_lesson_activity
   after_update :update_lesson_activity
   accepts_nested_attributes_for :results
@@ -12,14 +12,9 @@ class Lesson < ActiveRecord::Base
   scope :user_own, -> (user) {where user_id: user.id }
 
   def create_questions
-    if self.category.words.size >= Settings.lesson.number_words
-      words = self.category.words.shuffle().take Settings.lesson.number_words
-      words.each do |word|
-        self.results.build word_id: word.id
-      end
-    else
-      flash[:danger] = t "page.lesson.err_create_lesson"
-      redirect_to @category
+    words = self.category.words.shuffle().take Settings.lesson.number_words
+    words.each do |word|
+      self.results.build word_id: word.id
     end
   end
 
@@ -43,5 +38,10 @@ class Lesson < ActiveRecord::Base
   def create_activity action_type, content
     Activity.create user_id: self.user_id, target_id: self.id,
       action_type: action_type, content: content
+  end
+  def validate_words_size
+    if self.category.words.size < Settings.lesson.number_words
+      errors.add :word, I18n.t("page.lesson.err_create_lesson")
+    end
   end
 end
