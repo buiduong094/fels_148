@@ -114,8 +114,9 @@ en:
       categories:
         submit_create_new_category: "Create Category"
         create_category_success: "Create category success"
-        flash_delete_success: "Delete category success"
-        flash_delete_fail: "Delete category fail"
+        delete_success: "Delete category success"
+        delete_fail: "Delete category fail, category has some words
+         or lessons"
         title_create: "Create new category"
         title_page_create: "New Category"
         link_delete: "Delete"
