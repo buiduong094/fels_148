@@ -1,0 +1,22 @@
+I"º(function() {
+  var newInputWord;
+
+  newInputWord = function(id) {
+    var res;
+    res = '<tr><td>';
+    res += '<input placeholder="Answer" class="form-control" ';
+    res += 'name="word[word_answers_attributes][' + id + '][content]" ';
+    res += 'id="word_word_answers_attributes_' + id + '_content" type="text">';
+    res += '</td><td>';
+    res += '<input name="is_correct" value="' + id + '" ';
+    res += 'id="word_word_answers_attributes_' + id;
+    res += '_is_correct_' + id + '" type="radio">';
+    res += '</td><td>';
+    res += '<a href="#" class="btnRemove">';
+    res += '<i class="glyphicon glyphicon-trash"></i>';
+    res += '</a></td></tr>';
+    return res;
+  };
+
+}).call(this);
+:ET

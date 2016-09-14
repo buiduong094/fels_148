@@ -155,7 +155,7 @@ en:
 
     lessons:
       create_lesson_success: "Create lessons success"
-      create_lesson_fail: "Create lessons fail"
+      create_lesson_fail: "Create lesson fail, number word not enough to create lesson"
       link_create_lesson: "Create lesson"
       not_found_user: "Not found user"
       not_found_lesson: "This lesson isn't yours"

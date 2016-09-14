@@ -1,7 +1,8 @@
 <div class="col-md-4 blog-main box text-center"
   id="category_<%= category.id %>">
   <div class="panel panel-info">
-    <h4 class="panel-title label-default"><%= category.name %></h4>
+    <h4 class="panel-title label-info title_category_admin"><%= category.name %></h4>
+    <br/>
     <p><%= category.description %></p>
     <small class="label label-info">
       <%= localize_time category.created_at %>
@@ -15,5 +16,7 @@
         method: :delete, data: {confirm: t("page.messages.notice")},
         class: "btn btn-danger btn-xs" %>
     </div>
+    <br/>
+    <br/>
   </div>
 </div>

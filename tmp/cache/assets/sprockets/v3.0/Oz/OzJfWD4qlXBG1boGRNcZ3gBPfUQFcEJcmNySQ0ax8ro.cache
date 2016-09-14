@@ -1,0 +1,19 @@
+I"g(function() {
+  var make_radio_from_checkbox, ready;
+
+  make_radio_from_checkbox = function() {
+    $('.answer').click(function() {
+      return $('.answer').not(this).attr('checked', false);
+    });
+  };
+
+  ready = function() {
+    return $('body').on('DOMNodeInserted', function() {
+      make_radio_from_checkbox();
+    });
+  };
+
+  return;
+
+}).call(this);
+:ET

@@ -1,0 +1,24 @@
+I"(function() {
+  var make_radio_from_checkbox, ready;
+
+  make_radio_from_checkbox = function() {
+    $('.answer').click(function() {
+      if ($('#question_question_type').val() === 'single') {
+        $('.answer').not(this).attr('checked', false);
+      }
+    });
+    $('#question_question_type').on('change', function() {
+      $('.answer').attr('checked', false);
+    });
+  };
+
+  ready = function() {
+    return $('body').on('DOMNodeInserted', function() {
+      make_radio_from_checkbox();
+    });
+  };
+
+  return;
+
+}).call(this);
+:ET
